@@ -50,8 +50,9 @@ public class MainLettura{
 
         Scanner scanner = new Scanner(System.in);
         String comando = "";
-        try {
+
             while (!comando.equals("0")) {
+                try{
                 System.out.println("Scegli un numero :" + "\n" +
                         "1 -> Aggiungi Libro o Rivista all'archivio" + "\n" +
                         "2 -> Ricerca Libro o Rivista tramite ISBN" + "\n" +
@@ -158,12 +159,17 @@ public class MainLettura{
                         System.out.println("STATISTICHE DELL'ARCHIVIO");
                         System.out.println(archivio.statistiche());
                     }
+                }}
+                catch (InputMismatchException e){
+                    System.out.println("hai inserito un dato non valido. riprova");
+                    scanner.nextLine();
+                }
+                catch (Exception e){
+                    System.out.println("errore --> " + e.getMessage());
+                    scanner.nextLine();
                 }
             }
-        }
-        catch (InputMismatchException e){
-            e.getMessage();
-        }
+
 
 
     }
